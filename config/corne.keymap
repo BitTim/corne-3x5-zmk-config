@@ -94,5 +94,5 @@
 				key-positions = <30 35>;
 				bindings = <&tog GAMING>;
 			};
-		}
+		};
 };
