@@ -70,7 +70,7 @@
 
 		symbols_layer {
 			display-name = "Symbols";
-			binsings = <
+			bindings = <
 				&kp DE_N1        &kp DE_N2       &kp DE_N3         &kp DE_N4           &kp DE_N5          &kp DE_N6   &kp DE_N7           &kp DE_N8         &kp DE_N9        &kp DE_N0
 				&hml LCTRL DE_AT &hml LALT DE_LT &hml LCMD DE_LBKT &hml LSHIFT DE_LBRC &kp DE_LPAR        &kp DE_RPAR &hmr RSHIFT DE_RBRC &hmr RCMD DE_RBKT &hmr RALT DE_GT  &hmr RCTRL DE_HASH
 				&kp DE_PIPE      &kp DE_TILDE    &kp DE_BSLH       &kp DE_CARET        &kp DE_SQT         &kp DE_DQT  &kp DE_A_UMLAUT     &kp DE_O_UMLAUT   &kp DE_U_UMLAUT  &kp DE_SZ
