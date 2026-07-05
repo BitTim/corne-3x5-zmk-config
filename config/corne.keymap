@@ -20,6 +20,10 @@
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
 
+	&lt {
+		tapping-term-ms = <280>;
+	};
+
     behaviors {
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -29,6 +33,30 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+		
+		hml: home_row_mod_left {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			require-prior-idle-ms = <150>;
+			tapping-term-ms = <280>;
+			quick-tap-ms = <175>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>; // List of keys on the right side of the keyboard
+			hold-trigger-on-release;
+		};
+		
+		hmr: home_row_mod_right {
+			compatible = "zmk,behavior-hold-tap";
+			#binding-cells = <2>;
+			flavor = "balanced";
+			require-prior-idle-ms = <150>;
+			tapping-term-ms = <280>;
+			quick-tap-ms = <175>;
+			bindings = <&kp>, <&kp>;
+			hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24>; // List of keys on the left side of the keyboard
+			hold-trigger-on-release;																																																													        };
+		};
     };
         keymap {
                 compatible = "zmk,keymap";
@@ -36,30 +64,30 @@
 				default_layer {
 					display-name = "Base";
 					bindings = <
-						&kp DE_Q       &kp DE_W      &kp DE_E      &kp DE_R        &kp DE_T         &kp DE_Z  &kp DE_U        &kp DE_I      &kp DE_O      &kp DE_P
-						&mt LCTRL DE_A &mt LALT DE_S &mt LCMD DE_D &mt LSHIFT DE_F &kp DE_G         &kp DE_H  &mt RSHIFT DE_J &mt RCMD DE_K &mt RALT DE_L &mt RCTRL DE_PLUS
-						&kp DE_Y       &kp DE_X      &kp DE_C      &kp DE_V        &kp DE_B         &kp DE_N  &kp DE_M        &kp DE_COMMA  &kp DE_OT     &kp DE_MINUS
-						                             &lt NAV ESC   &lt SYMBOLS TAB &kp SPACE        &kp ENTER &lt SYMBOLS DEL &lt NAV BSPC
+						&kp DE_Q        &kp DE_W       &kp DE_E       &kp DE_R         &kp DE_T         &kp DE_Z  &kp DE_U         &kp DE_I       &kp DE_O       &kp DE_P
+						&hml LCTRL DE_A &hml LALT DE_S &hml LCMD DE_D &hml LSHIFT DE_F &kp DE_G         &kp DE_H  &hmr RSHIFT DE_J &hmr RCMD DE_K &hmr RALT DE_L &hmr RCTRL DE_PLUS
+						&kp DE_Y        &kp DE_X       &kp DE_C       &kp DE_V         &kp DE_B         &kp DE_N  &kp DE_M         &kp DE_COMMA   &kp DE_DOT      &kp DE_MINUS
+						                               &lt NAV ESC    &lt SYMBOLS TAB  &kp SPACE        &kp ENTER &lt SYMBOLS DEL  &lt NAV BSPC
 					>;
 				};
 
 				symbols_layer {
 					display-name = "Symbols";
 					binsings = <
-						&kp DE_N1       &kp DE_N2      &kp DE_N3        &kp DE_N4          &kp DE_N5          &kp DE_N6   &kp DE_N7          &kp DE_N8        &kp DE_N9       &kp DE_N0
-						&mt LCTRL DE_AT &mt LALT DE_LT &mt LCMD DE_LBKT &mt LSHIFT DE_LBRC &kp DE_LPAR        &kp DE_RPAR &mt RSHIFT DE_RBRC &mt RCMD DE_RBKT &mt RALT DE_GT  &mt RCTRL DE_HASH
-						&kp DE_PIPE     &kp DE_TILDE   &kp DE_BSLH      &kp DE_CARET       &kp DE_SQT         &kp DE_DQT  &kp DE_A_UMLAUT    &kp DE_O_UMLAUT  &kp DE_U_UMLAUT &kp DE_SZ
-						                               &trans           &trans             &trans             &trans      &trans             &trans
+						&kp DE_N1        &kp DE_N2       &kp DE_N3         &kp DE_N4           &kp DE_N5          &kp DE_N6   &kp DE_N7           &kp DE_N8         &kp DE_N9        &kp DE_N0
+						&hml LCTRL DE_AT &hml LALT DE_LT &hml LCMD DE_LBKT &hml LSHIFT DE_LBRC &kp DE_LPAR        &kp DE_RPAR &hmr RSHIFT DE_RBRC &hmr RCMD DE_RBKT &hmr RALT DE_GT  &hmr RCTRL DE_HASH
+						&kp DE_PIPE      &kp DE_TILDE    &kp DE_BSLH       &kp DE_CARET        &kp DE_SQT         &kp DE_DQT  &kp DE_A_UMLAUT     &kp DE_O_UMLAUT   &kp DE_U_UMLAUT  &kp DE_SZ
+						                                 &trans            &trans              &trans             &trans      &trans              &trans
 					>;
 				};
 
 				nav_layer {
 					display-name = "Navigation";
 					bindings = <
-						&kp F1    &kp F2      &kp F3   &kp F4     &kp F5        &kp F8 &kp F9     &kp F10   &kp F11   &kp F12
-						&kp LCTRL &kp LALT    &kp LCMD &kp LSHIFT &kp F6        &kp F7 &kp RSHIFT &kp RCMD  &kp RALT  &kp RCTRL
-						&kp PG_UP &kp PG_DOWN &kp HOME &kp END    &none         &none  &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT
-						                      &trans   &trans     &trans        &trans &trans     &trans
+						&kp F1    &kp F2    &kp F3   &kp F4     &kp F5        &kp F8 &kp F9     &kp F10   &kp F11   &kp F12
+						&kp LCTRL &kp LALT  &kp LCMD &kp LSHIFT &kp F6        &kp F7 &kp RSHIFT &kp RCMD  &kp RALT  &kp RCTRL
+						&kp PG_UP &kp PG_DN &kp HOME &kp END    &none         &none  &kp LEFT   &kp DOWN  &kp UP    &kp RIGHT
+						                    &trans   &trans     &trans        &trans &trans     &trans
 					>;
 				};
 
@@ -94,5 +122,5 @@
 				key-positions = <30 35>;
 				bindings = <&tog GAMING>;
 			};
-		}
+		};
 };
