@@ -29,10 +29,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-
-		&lt {
-			tapping-term-ms = <280>;
-		};
 		
 		hml: home_row_mod_left {
 			compatible = "zmk,behavior-hold-tap";
