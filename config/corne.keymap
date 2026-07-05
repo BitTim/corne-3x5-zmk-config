@@ -123,4 +123,5 @@
 				bindings = <&tog GAMING>;
 			};
 		};
+		};
 };
