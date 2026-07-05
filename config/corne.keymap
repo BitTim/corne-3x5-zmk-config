@@ -56,10 +56,10 @@
 				nav_layer {
 					display-name = "Navigation";
 					bindings = <
-						&kp F1    &kp F2      &kp F3   &kp F4     &kp F5        &kp F8 &kp F9     &kp F10   &kp F11   &kp F12
-						&kp LCTRL &kp LALT    &kp LCMD &kp LSHIFT &kp F6        &kp F7 &kp RSHIFT &kp RCMD  &kp RALT  &kp RCTRL
-						&kp PG_UP &kp PG_DOWN &kp HOME &kp END    &none         &none  &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT
-						                      &trans   &trans     &trans        &trans &trans     &trans
+						&kp F1    &kp F2    &kp F3   &kp F4     &kp F5        &kp F8 &kp F9     &kp F10   &kp F11   &kp F12
+						&kp LCTRL &kp LALT  &kp LCMD &kp LSHIFT &kp F6        &kp F7 &kp RSHIFT &kp RCMD  &kp RALT  &kp RCTRL
+						&kp PG_UP &kp PG_DN &kp HOME &kp END    &none         &none  &kp LEFT   &kp UP    &kp DOWN  &kp RIGHT
+						                    &trans   &trans     &trans        &trans &trans     &trans
 					>;
 				};
 
